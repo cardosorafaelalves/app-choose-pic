@@ -1,0 +1,746 @@
+{
+  "info": {
+    "_postman_id": "app-choose-pic-collection",
+    "name": "App Choose Pic - API Collection",
+    "description": "Collection com todas as rotas da API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/user",
+              "host": ["{{base_url}}"],
+              "path": ["user"]
+            },
+            "description": "Get authenticated user (requires Sanctum token)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Channels",
+      "item": [
+        {
+          "name": "List All Channels",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/channels",
+              "host": ["{{base_url}}"],
+              "path": ["channels"]
+            },
+            "description": "List all channels"
+          }
+        },
+        {
+          "name": "Create Channel",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Channel Name\",\n  \"description\": \"Channel description\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/channels",
+              "host": ["{{base_url}}"],
+              "path": ["channels"]
+            },
+            "description": "Create a new channel"
+          }
+        },
+        {
+          "name": "Get Channel by UUID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/channels/{{channel_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["channels", "{{channel_uuid}}"]
+            },
+            "description": "Get a specific channel by UUID"
+          }
+        },
+        {
+          "name": "Update Channel",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Channel Name\",\n  \"description\": \"Updated description\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/channels/{{channel_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["channels", "{{channel_uuid}}"]
+            },
+            "description": "Update a channel"
+          }
+        },
+        {
+          "name": "Delete Channel",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/channels/{{channel_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["channels", "{{channel_uuid}}"]
+            },
+            "description": "Delete a channel"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Channel Configs",
+      "item": [
+        {
+          "name": "List All Channel Configs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/channel-configs",
+              "host": ["{{base_url}}"],
+              "path": ["channel-configs"]
+            },
+            "description": "List all channel configs"
+          }
+        },
+        {
+          "name": "Create Channel Config",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_uuid\": \"{{channel_uuid}}\",\n  \"config_key\": \"key_name\",\n  \"config_value\": \"value\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/channel-configs",
+              "host": ["{{base_url}}"],
+              "path": ["channel-configs"]
+            },
+            "description": "Create a new channel config"
+          }
+        },
+        {
+          "name": "Get Channel Config by UUID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/channel-configs/{{config_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["channel-configs", "{{config_uuid}}"]
+            },
+            "description": "Get a specific channel config by UUID"
+          }
+        },
+        {
+          "name": "Update Channel Config",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config_key\": \"updated_key\",\n  \"config_value\": \"updated_value\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/channel-configs/{{config_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["channel-configs", "{{config_uuid}}"]
+            },
+            "description": "Update a channel config"
+          }
+        },
+        {
+          "name": "Delete Channel Config",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/channel-configs/{{config_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["channel-configs", "{{config_uuid}}"]
+            },
+            "description": "Delete a channel config"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "List All Customers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/customers",
+              "host": ["{{base_url}}"],
+              "path": ["customers"]
+            },
+            "description": "List all customers"
+          }
+        },
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Customer Name\",\n  \"email\": \"customer@example.com\",\n  \"channel_uuid\": \"{{channel_uuid}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/customers",
+              "host": ["{{base_url}}"],
+              "path": ["customers"]
+            },
+            "description": "Create a new customer"
+          }
+        },
+        {
+          "name": "Get Customer by UUID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/customers/{{customer_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["customers", "{{customer_uuid}}"]
+            },
+            "description": "Get a specific customer by UUID"
+          }
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Customer Name\",\n  \"email\": \"updated@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/customers/{{customer_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["customers", "{{customer_uuid}}"]
+            },
+            "description": "Update a customer"
+          }
+        },
+        {
+          "name": "Delete Customer",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/customers/{{customer_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["customers", "{{customer_uuid}}"]
+            },
+            "description": "Delete a customer"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customer Configs",
+      "item": [
+        {
+          "name": "List All Customer Configs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/customer-configs",
+              "host": ["{{base_url}}"],
+              "path": ["customer-configs"]
+            },
+            "description": "List all customer configs"
+          }
+        },
+        {
+          "name": "Create Customer Config",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_uuid\": \"{{customer_uuid}}\",\n  \"config_key\": \"key_name\",\n  \"config_value\": \"value\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/customer-configs",
+              "host": ["{{base_url}}"],
+              "path": ["customer-configs"]
+            },
+            "description": "Create a new customer config"
+          }
+        },
+        {
+          "name": "Get Customer Config by UUID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/customer-configs/{{config_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["customer-configs", "{{config_uuid}}"]
+            },
+            "description": "Get a specific customer config by UUID"
+          }
+        },
+        {
+          "name": "Update Customer Config",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config_key\": \"updated_key\",\n  \"config_value\": \"updated_value\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/customer-configs/{{config_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["customer-configs", "{{config_uuid}}"]
+            },
+            "description": "Update a customer config"
+          }
+        },
+        {
+          "name": "Delete Customer Config",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/customer-configs/{{config_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["customer-configs", "{{config_uuid}}"]
+            },
+            "description": "Delete a customer config"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "item": [
+        {
+          "name": "List All Images",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/images",
+              "host": ["{{base_url}}"],
+              "path": ["images"]
+            },
+            "description": "List all images"
+          }
+        },
+        {
+          "name": "Create Image",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://example.com/image.jpg\",\n  \"title\": \"Image Title\",\n  \"customer_uuid\": \"{{customer_uuid}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/images",
+              "host": ["{{base_url}}"],
+              "path": ["images"]
+            },
+            "description": "Create a new image"
+          }
+        },
+        {
+          "name": "Get Image by UUID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/images/{{image_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["images", "{{image_uuid}}"]
+            },
+            "description": "Get a specific image by UUID"
+          }
+        },
+        {
+          "name": "Update Image",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Image Title\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/images/{{image_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["images", "{{image_uuid}}"]
+            },
+            "description": "Update an image"
+          }
+        },
+        {
+          "name": "Delete Image",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/images/{{image_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["images", "{{image_uuid}}"]
+            },
+            "description": "Delete an image"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "List All Orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/orders",
+              "host": ["{{base_url}}"],
+              "path": ["orders"]
+            },
+            "description": "List all orders"
+          }
+        },
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_uuid\": \"{{customer_uuid}}\",\n  \"status\": \"pending\",\n  \"total_amount\": 100.00\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/orders",
+              "host": ["{{base_url}}"],
+              "path": ["orders"]
+            },
+            "description": "Create a new order"
+          }
+        },
+        {
+          "name": "Get Order by UUID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/orders/{{order_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["orders", "{{order_uuid}}"]
+            },
+            "description": "Get a specific order by UUID"
+          }
+        },
+        {
+          "name": "Update Order",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"completed\",\n  \"total_amount\": 150.00\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/orders/{{order_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["orders", "{{order_uuid}}"]
+            },
+            "description": "Update an order"
+          }
+        },
+        {
+          "name": "Delete Order",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/orders/{{order_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["orders", "{{order_uuid}}"]
+            },
+            "description": "Delete an order"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Order Images",
+      "item": [
+        {
+          "name": "List All Order Images",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/order-images",
+              "host": ["{{base_url}}"],
+              "path": ["order-images"]
+            },
+            "description": "List all order images"
+          }
+        },
+        {
+          "name": "Create Order Image",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_uuid\": \"{{order_uuid}}\",\n  \"image_uuid\": \"{{image_uuid}}\",\n  \"quantity\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/order-images",
+              "host": ["{{base_url}}"],
+              "path": ["order-images"]
+            },
+            "description": "Create a new order image"
+          }
+        },
+        {
+          "name": "Get Order Image by UUID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/order-images/{{order_image_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["order-images", "{{order_image_uuid}}"]
+            },
+            "description": "Get a specific order image by UUID"
+          }
+        },
+        {
+          "name": "Update Order Image",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/order-images/{{order_image_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["order-images", "{{order_image_uuid}}"]
+            },
+            "description": "Update an order image"
+          }
+        },
+        {
+          "name": "Delete Order Image",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/order-images/{{order_image_uuid}}",
+              "host": ["{{base_url}}"],
+              "path": ["order-images", "{{order_image_uuid}}"]
+            },
+            "description": "Delete an order image"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Upload",
+      "item": [
+        {
+          "name": "Upload File",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/upload",
+              "host": ["{{base_url}}"],
+              "path": ["upload"]
+            },
+            "description": "Upload a file"
+          }
+        },
+        {
+          "name": "Initialize Socket Upload",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/upload/init",
+              "host": ["{{base_url}}"],
+              "path": ["upload", "init"]
+            },
+            "description": "Initialize socket upload session (returns socket url + session id)"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "channel_uuid",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "config_uuid",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "customer_uuid",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "image_uuid",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "order_uuid",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "order_image_uuid",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
